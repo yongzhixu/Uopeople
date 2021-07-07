@@ -1,8 +1,11 @@
 package edu.uopeople.cs3303datastructures.unit2;
 
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.*;
+import org.springframework.test.context.event.annotation.BeforeTestClass;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * AlgotithmCompare Tester.
@@ -11,14 +14,29 @@ import org.junit.After;
  * @version 1.0
  * @since <pre>07/07/2021</pre>
  */
+@Slf4j
 public class AlgotithmCompareTest {
 
-    @Before
-    public void before() throws Exception {
+    @BeforeAll
+    static void beforeAll() {
+
+        log.info("before all");
     }
 
-    @After
+    @BeforeTestClass
+    public void beforeTestClass() {
+
+        log.info("before beforeTestClass");
+    }
+
+    @BeforeEach
+    public void before() throws Exception {
+        log.info("before each");
+    }
+
+    @AfterEach
     public void after() throws Exception {
+        log.info("after each");
     }
 
     /**
@@ -26,8 +44,12 @@ public class AlgotithmCompareTest {
      */
     @Test
     public void testMain() throws Exception {
-//TODO: Test goes here... 
+//TODO: Test goes here...
+        log.info("234234234");
     }
 
-
-} 
+    @Override
+    public String toString() {
+        return "AlgotithmCompareTest{}";
+    }
+}
